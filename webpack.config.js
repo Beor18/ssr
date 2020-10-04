@@ -2,12 +2,13 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 const client = {
-  entry: './src/index.js',
   mode: process.env.NODE_ENV || 'development',
+  entry: './src/index.js',
+  target: 'node',
+  externals: [nodeExternals()],
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    path: path.resolve('build'),
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -15,11 +16,19 @@ const client = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-    ],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              require.resolve('@babel/preset-react'),
+              require.resolve('@babel/preset-env')
+            ]
+          }
+        }
+      }
+    ]
   },
 }
 
@@ -29,23 +38,25 @@ const server = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   mode: 'production',
   target: 'node',
   externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: require.resolve('babel-loader')
-        }
-      },
-      {
-        test: /\.graphql$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'raw-loader'
+          loader: require.resolve('babel-loader'),
+          options: {
+            presets: [
+              require.resolve('@babel/preset-react'),
+              require.resolve('@babel/preset-env')
+            ]
+          }
         }
       }
     ]

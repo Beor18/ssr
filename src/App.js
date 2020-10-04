@@ -1,9 +1,10 @@
 import React from 'react';
+import Search from './containers/Search/Search';
 
 const App = () => {
   return (
     <div className="app">
-      <h2>Hola Mundo</h2>
+      <Search />
     </div>
   );
 }
