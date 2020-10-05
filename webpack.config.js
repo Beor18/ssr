@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const client = {
   mode: process.env.NODE_ENV || 'development',
@@ -27,9 +28,20 @@ const client = {
             ]
           }
         }
-      }
+      },
+      {
+        test: /\.styl$/, 
+        use: [
+          MiniCssExtractPlugin.loader, "css-loader","stylus-loader"
+        ] 
+      },
     ]
   },
+  plugins:[
+    new MiniCssExtractPlugin({
+            filename: "css/[name].css"
+    })
+  ] 
 }
 
 const server = {
@@ -58,9 +70,20 @@ const server = {
             ]
           }
         }
-      }
+      },
+      {
+        test: /\.styl$/, 
+        use: [
+          MiniCssExtractPlugin.loader, "css-loader","stylus-loader"
+        ] 
+      },
     ]
   },
+  plugins:[
+    new MiniCssExtractPlugin({
+            filename: "css/[name].css"
+    })
+  ] 
 };
 
 module.exports = [client, server];

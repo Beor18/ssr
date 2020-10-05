@@ -1,8 +1,9 @@
 import React from 'react';
+import './Button.styl';
 
 const Button = () => {
     return (
-        <h1>Soy un boton!!!!</h1>
+        <div className="container">Soy un boton!!!!</div>
     );
 }
 

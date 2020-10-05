@@ -1,11 +1,13 @@
 import React from "react";
-import Button from '../../components/Button/Button';
+import SearchContainer from "../../components/Search/SearchContainer";
+import Button from "../../components/Button/Button";
 
 const Search = () => {
   return (
     <div>
-      <h1>SearchPage dfdsf</h1>
-      <Button />
+      <SearchContainer>
+        <Button />
+      </SearchContainer>
     </div>
   );
 };
