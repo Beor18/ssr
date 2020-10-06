@@ -1,8 +1,28 @@
 body
     margin 0
     padding 0
+    
 .search
     background #ccc
     height 100vh
-    position relative
+    position absolute
     width 100%
+
+.filterContainer 
+    margin 10px auto
+    display flex
+    -webkit-flex-direction row
+    -moz-flex-direction row
+    flex-direction row
+    justify-content space-between
+    flex-wrap nowrap
+    max-width 50%
+
+.inputContainer
+    padding 40px
+    display flex
+    & input
+        margin 0 auto
+        padding 5px
+        border none
+        border-radius 5px

@@ -1,9 +1,11 @@
 import React from 'react';
 import './Button.styl';
 
-const Button = () => {
+const Button = ({text}) => {
     return (
-        <div className="container">Soy un boton!!!!</div>
+        <div className="buttons">
+            <a href="#" className="buttons link">{text}</a>
+        </div>
     );
 }
 

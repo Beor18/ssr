@@ -5,8 +5,6 @@ let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const client = {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
-  target: 'node',
-  externals: [nodeExternals()],
   output: {
     path: path.resolve('build'),
     filename: 'bundle.js'
@@ -46,6 +44,7 @@ const client = {
 
 const server = {
   entry: './server/server.js',
+  target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'

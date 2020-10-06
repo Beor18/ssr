@@ -9,4 +9,4 @@ function Main() {
   );
 }
 
-ReactDOM.hydrate(<Main />, document.querySelector('#root'));
+ReactDOM.hydrate(<Main />, document.getElementById('root'));
