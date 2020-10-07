@@ -8,12 +8,19 @@ const FilterButtons = ({ text, pagSelected, setPagSelected, result = [] }) => {
         className={`btnSearch focusable ${pagSelected === "all" && `active`}`}
         onClick={() => setPagSelected("all")}
       >
+        Todos
+      </button>
+
+      <button
+        className={`btnSearch focusable ${pagSelected === "humans" && `active`}`}
+        onClick={() => setPagSelected("humans")}
+      >
         Human
       </button>
 
       <button
-        className={`btnSearch focusable ${pagSelected === "tv" && `active`}`}
-        onClick={() => setPagSelected("tv")}
+        className={`btnSearch focusable ${pagSelected === "aliens" && `active`}`}
+        onClick={() => setPagSelected("aliens")}
       >
         Aliens
       </button>

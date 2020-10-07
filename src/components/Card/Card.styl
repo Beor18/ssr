@@ -38,8 +38,6 @@ img
   
   @media(min-width 56rem) 
     width 33.3333%
-  
-
 
 .card 
   width 100%
@@ -82,11 +80,6 @@ img
   @media(min-width 40rem) 
     &before 
       padding-top 66.6%
-    
-
-// .card__image--fence 
-//   background-image url("https://unsplash.it/800/600?image=39")
-
 
 .card__title 
   color #444444
@@ -103,3 +96,17 @@ img
   margin-bottom 1.25rem
 
 
+@media (max-width 500px)
+    .cards
+       flex-direction column
+       align-items center
+
+    .card
+        width 200px
+        
+    .card__title
+        font-size 15px
+
+    .card__image
+        width 100%
+        height: auto;

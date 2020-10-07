@@ -7,25 +7,15 @@ import InputSearch from "../../components/Search/InputSearch";
 import FilterContainer from "../../components/Search/FilterContainer";
 import FilterButtons from "../../components/Search/FilterButtons";
 import Card from "../../components/Card/Card";
-import Loading from "../../components/Loading/Loading";
+import RenderLoading from "../../components/Loading/Loading";
 import Button from "../../components/Button/Button";
-
-const people = [
-  "Siri",
-  "Alexa",
-  "Google",
-  "Facebook",
-  "Twitter",
-  "Linkedin",
-  "Sinkedin",
-];
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [data, setData] = useState({});
   const [pagSelected, setPagSelected] = useState("all");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -43,27 +33,22 @@ const Search = () => {
         person.name.toLowerCase().includes(searchTerm)
       );
 
-      const species = [
-        ...data.map((item) => {
-          return {
-            ...item,
-            types: "human",
-          };
-        }),
-      ];
+      const humans = data.filter((x) => x.species === "Human")
+      const aliens = data.filter((x) => x.species === "Alien")
 
-      const all = [...species];
-      console.log(all);
+      const all = [...humans, ...aliens];
 
       setSearchResults(results);
 
       setData({
         all,
+        humans,
+        aliens
       });
 
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+      // setTimeout(() => {
+      //   setLoading(false);
+      // }, 1000);
     };
 
     getData();
@@ -71,16 +56,16 @@ const Search = () => {
 
   useEffect(() => {
     if (get(data, pagSelected)) {
-      setTimeout(() => {
+      //setTimeout(() => {
         setSearchResults(get(data, pagSelected) || []);
-        setLoading(false);
-      }, 200);
+        //setLoading(true);
+      //}, 200);
     }
   }, [pagSelected, data]);
 
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
   return (
     <SearchContainer>
@@ -91,23 +76,32 @@ const Search = () => {
       />
       <FilterContainer>
         <FilterButtons
-          pagSelected={"all"}
+          pagSelected={pagSelected}
           setPagSelected={setPagSelected}
           result={searchResults}
         />
       </FilterContainer>
-      <div>
-        <ul className="cards">
-          {searchResults.map((item) => (
-            <Card
-              key={"id" + item.id}
-              title={item.name}
-              description={item.species}
-              image={item.image}
-            />
-          ))}
-        </ul>
-      </div>
+
+      {loading || !searchTerm || !searchResults.length ? (
+        <RenderLoading
+          result={searchResults}
+          input={searchTerm.length > 1 ? searchTerm : ""}
+          loading={loading}
+        />
+      ) : (
+        <div>
+          <ul className="cards">
+            {searchResults.map((item) => (
+              <Card
+                key={"id" + item.id}
+                title={item.name}
+                description={item.species}
+                image={item.image}
+              />
+            ))}
+          </ul>
+        </div>
+      )}
     </SearchContainer>
   );
 };

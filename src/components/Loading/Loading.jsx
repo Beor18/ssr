@@ -2,11 +2,7 @@ import React from "react";
 import "./Loading.styl";
 
 const Animacion = () => {
-    return (
-        <div className="animation">
-
-        </div>
-    )
+  return <div className="animation"></div>;
 };
 
 const Loading = ({ mensaje }) => {
@@ -18,4 +14,24 @@ const Loading = ({ mensaje }) => {
   );
 };
 
-export default Loading;
+const RenderLoading = ({ result, input, loading }) => {
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!input || input.length === 0) {
+    return (
+      <div className="">
+        <h1>Bienvenidos al buscador!!!</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div className="">
+      {(!result || result.length === 0) && <h1>Intente nuevamente</h1>}
+    </div>
+  );
+};
+
+export default RenderLoading;
