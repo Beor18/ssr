@@ -1,0 +1,25 @@
+.loading 
+    height 100vh
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+
+.animation
+  width 70px
+  height 70px
+  border 10px solid #eee
+  border-radius 50%
+  border-top 10px solid #d60036
+  animation-name girar
+  animation-duration 2s
+  animation-iteration-count infinite
+  animation-timing-function linear
+  @keyframes girar 
+    from 
+      transform rotate(0deg)
+    
+    to 
+      transform rotate(360deg)
+    
+  

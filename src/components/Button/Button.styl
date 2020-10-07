@@ -1,3 +1,4 @@
+// Buttons generic
 .buttons
     background #999
     padding 1em
@@ -8,6 +9,38 @@
     flex-grow 1
     text-align center
 
-@media (max-width: 500px)
+// Filter Buttons
+.formGroup 
+    margin auto
+    width 100%
+  
+  .buttonFilter 
+    height 56px
+    width 100%
+    padding-top 5px
+    display flex
+    justify-content space-around
+    align-items center
+  
+  .btnSearch 
+    background #999
+    border 3px solid transparent
+    min-width 137px
+    height 40px
+    border-radius 2px
+    font-weight 300
+    font-size 18px
+    color #fff
+    text-decoration none
+    &focus 
+      height 30px
+      background #ccc
+      position initial
+      margin-bottom 0
+      margin-top 0
+     
+
+
+@media (max-width 500px)
     .buttons
         width 100%
