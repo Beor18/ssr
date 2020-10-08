@@ -23,6 +23,7 @@ const RenderLoading = ({ result, input, loading }) => {
     return (
       <div className="welcome">
         <h1>Bienvenidos al buscador!!!</h1>
+        <h3>ingrese una palabra 👆👆👆</h3>
       </div>
     );
   }
