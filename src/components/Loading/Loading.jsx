@@ -24,9 +24,6 @@ const RenderLoading = ({ result, input, loading }) => {
       <div className="welcome">
         <h1>Bienvenido al Buscador de Rick And Morty</h1>
         <h3><span>Api utilizada:</span> Rick and Morty</h3>
-        <p>
-          Por Fernando López
-        </p>
       </div>
     );
   }
