@@ -44,9 +44,6 @@ const Search = () => {
         aliens
       });
 
-      // setTimeout(() => {
-      //   setLoading(false);
-      // }, 1000);
     };
 
     getData();
@@ -58,13 +55,10 @@ const Search = () => {
       setTimeout(() => {
         setSearchResults(get(data, pagSelected) || []);
         setLoading(false);
-      }, 200);
+      }, 500);
     }
   }, [pagSelected, data]);
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
 
   return (
     <SearchContainer>

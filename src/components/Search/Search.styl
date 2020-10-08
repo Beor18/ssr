@@ -5,6 +5,17 @@ body
     margin 0
     padding 0
     background #f0f0f0
+    font-family Roboto
+
+span
+    font-weight 600
+  
+h1
+    text-transform uppercase
+    font-weight 500
+  
+h3
+    font-weight 300
 
 .filter_container 
     margin 10px auto
@@ -19,12 +30,26 @@ body
 .input_container
     padding 40px
     display flex
+    align-items center
+    flex-direction row
+    align-content center
+    justify-content center
+    & svg
+        font-size 40px
+        margin 0
+        border 5px
+        border-radius 5px 0px 0px 5px
+        background #fff
+        text-align center
+        padding 9px
+        height 45px
     & input
         width 30%
-        margin 0 auto
+        height 45px
+        margin 0
         padding 15px
         border none
-        border-radius 5px
+        border-radius 0px 5px 5px 0px
 
 @media (max-width: 500px)
     .input_container
@@ -34,9 +59,10 @@ body
     .filter_container
         display block
     
-    .button_filter
-        display flex
-        flex-direction column
-
-    .btn_search
-        margin 5px
+    h1
+        font-size 20px
+        text-align center
+    
+    h3
+        font-size 16px
+        text-align center
