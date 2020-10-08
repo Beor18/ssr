@@ -5,21 +5,21 @@ const FilterButtons = ({ text, pagSelected, setPagSelected, result = [] }) => {
   return (
     <div id="searchButtoms" className="form_group button_filter">
       <button
-        className={`btn_search focusable ${pagSelected === "all" && `active`}`}
+        className={`btn_search ${pagSelected === "all" && `active`}`}
         onClick={() => setPagSelected("all")}
       >
         Todos
       </button>
 
       <button
-        className={`btn_search focusable ${pagSelected === "humans" && `active`}`}
+        className={`btn_search ${pagSelected === "humans" && `active`}`}
         onClick={() => setPagSelected("humans")}
       >
         Human
       </button>
 
       <button
-        className={`btn_search focusable ${pagSelected === "aliens" && `active`}`}
+        className={`btn_search ${pagSelected === "aliens" && `active`}`}
         onClick={() => setPagSelected("aliens")}
       >
         Aliens
