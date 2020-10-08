@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const client = {
@@ -28,12 +29,18 @@ const client = {
         }
       },
       {
-        test: /\.styl$/, 
+        test: /\.styl$/,
         use: [
           MiniCssExtractPlugin.loader, "css-loader","stylus-loader"
-        ] 
+        ]
       },
     ]
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins:[
     new MiniCssExtractPlugin({
