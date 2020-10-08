@@ -8,19 +8,6 @@ img
   max-width 100%
   vertical-align middle
 
-
-.btn 
-  background-color white
-  border 1px solid #cccccc
-  color #444444
-  padding 0.5rem
-  text-transform lowercase
-
-
-.btn--block 
-  display block
-  width 100%
-
  
 .cards 
   display flex
@@ -30,7 +17,7 @@ img
   padding 0
 
 
-.cards__item 
+.cards_item 
   display flex
   padding 1rem
   @media(min-width 40rem) 
@@ -49,20 +36,20 @@ img
   flex-direction column
   overflow hidden
   &hover 
-    .card__image 
+    .card_image 
       filter contrast(100%)
     
   
 
 
-.card__content 
+.card_content 
   display flex
   flex 1 1 auto
   flex-direction column
   padding 1rem
 
 
-.card__image 
+.card_image 
   background-position center center
   background-repeat no-repeat
   background-size cover
@@ -81,7 +68,7 @@ img
     &before 
       padding-top 66.6%
 
-.card__title 
+.card_title 
   color #444444
   font-size 1.25rem
   font-weight 300
@@ -89,7 +76,7 @@ img
   text-transform uppercase
 
 
-.card__text 
+.card_text 
   flex 1 1 auto
   font-size 0.875rem
   line-height 1.5
@@ -104,9 +91,9 @@ img
     .card
         width 200px
         
-    .card__title
+    .card_title
         font-size 15px
 
-    .card__image
+    .card_image
         width 100%
         height: auto;

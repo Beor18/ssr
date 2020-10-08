@@ -21,15 +21,15 @@ const RenderLoading = ({ result, input, loading }) => {
 
   if (!input || input.length === 0) {
     return (
-      <div className="">
+      <div className="welcome">
         <h1>Bienvenidos al buscador!!!</h1>
       </div>
     );
   }
 
   return (
-    <div className="">
-      {(!result || result.length === 0) && <h1>Intente nuevamente</h1>}
+    <div className="not_result">
+      {(!result || result.length === 0) && <h1>No hubo resultado! Intente nuevamente</h1>}
     </div>
   );
 };

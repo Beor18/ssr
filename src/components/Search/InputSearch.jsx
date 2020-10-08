@@ -3,7 +3,7 @@ import React from "react";
 const InputSearch = ({ placeholder, value, onChange }) => {
 
   return (
-    <div className="inputContainer">
+    <div className="input_container">
       <input type="text" placeholder={placeholder} value={value} onChange={onChange} />
     </div>
   );

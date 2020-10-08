@@ -3,14 +3,14 @@ import "./Card.styl";
 
 const Card = ({ title, description, image }) => {
   return (
-    <li className="cards__item">
+    <li className="cards_item">
       <div className="card">
-        <div className="card__image">
+        <div className="card_image">
           <img src={image} />
         </div>
-        <div className="card__content">
-          <div className="card__title">{title}</div>
-          <p className="card__text">{description} </p>
+        <div className="card_content">
+          <div className="card_title">{title}</div>
+          <p className="card_text">{description} </p>
         </div>
       </div>
     </li>

@@ -33,12 +33,10 @@ const Search = () => {
         person.name.toLowerCase().includes(searchTerm)
       );
 
-      const humans = data.filter((x) => x.species === "Human")
-      const aliens = data.filter((x) => x.species === "Alien")
+      const humans = results.filter((x) => x.species === "Human")
+      const aliens = results.filter((x) => x.species === "Alien")
 
       const all = [...humans, ...aliens];
-
-      setSearchResults(results);
 
       setData({
         all,
@@ -56,10 +54,11 @@ const Search = () => {
 
   useEffect(() => {
     if (get(data, pagSelected)) {
-      //setTimeout(() => {
+      setLoading(true);
+      setTimeout(() => {
         setSearchResults(get(data, pagSelected) || []);
-        //setLoading(true);
-      //}, 200);
+        setLoading(false);
+      }, 200);
     }
   }, [pagSelected, data]);
 
