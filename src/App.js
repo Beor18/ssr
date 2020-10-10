@@ -1,12 +1,18 @@
-import React from 'react';
-import Search from './containers/Search/Search';
+import React, { useState } from "react";
+import Search from "./containers/Search/Search";
+
+import { SearchContext } from "./context/SearchContext";
+import { FaTruckLoading } from "react-icons/fa";
 
 const App = () => {
+  const [loading, setLoading] = useState(false);
   return (
     <div className="app">
-      <Search />
+      <SearchContext.Provider value={{ loading, setLoading }}>
+        <Search />
+      </SearchContext.Provider>
     </div>
   );
-}
+};
 
 export default App;

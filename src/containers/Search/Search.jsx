@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, useContext } from "react";
 import get from "lodash/get";
+
+import { SearchContext } from "../../context/SearchContext";
+import useFetch from "../../hooks/useFetch";
 
 import SearchContainer from "../../components/Search/SearchContainer";
 import InputSearch from "../../components/Search/InputSearch";
@@ -11,54 +13,41 @@ import RenderLoading from "../../components/Loading/Loading";
 import Button from "../../components/Button/Button";
 
 const Search = () => {
+  const { loading, setLoading } = useContext(SearchContext);
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [data, setData] = useState({});
+  const [datas, setDatas] = useState({});
   const [pagSelected, setPagSelected] = useState("all");
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  const { data } = useFetch("https://rickandmortyapi.com/api/character/");
+  const newData = get(data, "results", []);
+
   useEffect(() => {
-    const getData = async () => {
-      const result = await axios
-        .get("https://rickandmortyapi.com/api/character/")
-        .catch(() => null);
+    const results = newData.filter((person) =>
+      person.name.toLowerCase().includes(searchTerm)
+    );
 
-      const data = get(result, "data.results", []);
+    const humans = results.filter((x) => x.species === "Human");
+    const aliens = results.filter((x) => x.species === "Alien");
 
-      const results = data.filter((person) =>
-        person.name.toLowerCase().includes(searchTerm)
-      );
-
-      const humans = results.filter((x) => x.species === "Human")
-      const aliens = results.filter((x) => x.species === "Alien")
-
-      const all = [...humans, ...aliens];
-
-      setData({
-        all,
-        humans,
-        aliens
-      });
-
-    };
-
-    getData();
+    const all = [...humans, ...aliens];
+    setDatas({ all, humans, aliens });
   }, [searchTerm]);
 
   useEffect(() => {
-    if (get(data, pagSelected)) {
+    if (get(datas, pagSelected)) {
       setLoading(true);
       setTimeout(() => {
-        setSearchResults(get(data, pagSelected) || []);
+        setSearchResults(get(datas, pagSelected) || []);
         setLoading(false);
       }, 500);
     }
-  }, [pagSelected, data]);
-
+  }, [pagSelected, datas]);
 
   return (
     <SearchContainer>
