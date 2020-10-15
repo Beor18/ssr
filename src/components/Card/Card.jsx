@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Card.styl";
 
 const Card = ({ title, description, image }) => {
@@ -15,6 +16,12 @@ const Card = ({ title, description, image }) => {
       </div>
     </li>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default Card;

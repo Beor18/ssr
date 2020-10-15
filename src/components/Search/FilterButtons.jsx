@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./../Button/Button.styl";
 
 const FilterButtons = ({ text, pagSelected, setPagSelected, result = [] }) => {
@@ -26,6 +27,13 @@ const FilterButtons = ({ text, pagSelected, setPagSelected, result = [] }) => {
       </button>
     </div>
   );
+};
+
+FilterButtons.propTypes = {
+  text: PropTypes.string,
+  pagSelected: PropTypes.string,
+  setPagSelected: PropTypes.func,
+  result: PropTypes.array,
 };
 
 export default FilterButtons;

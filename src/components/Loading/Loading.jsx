@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Loading.styl";
 
 const Animacion = () => {
@@ -23,7 +24,9 @@ const RenderLoading = ({ result, input, loading }) => {
     return (
       <div className="welcome">
         <h1>Bienvenido al Buscador de Rick And Morty</h1>
-        <h3><span>Api utilizada:</span> Rick and Morty</h3>
+        <h3>
+          <span>Api utilizada:</span> Rick and Morty
+        </h3>
       </div>
     );
   }
@@ -38,6 +41,16 @@ const RenderLoading = ({ result, input, loading }) => {
       )}
     </div>
   );
+};
+
+Loading.propTypes = {
+  mensaje: PropTypes.string,
+};
+
+RenderLoading.propTypes = {
+  result: PropTypes.array,
+  input: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default RenderLoading;
