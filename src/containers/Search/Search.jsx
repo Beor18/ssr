@@ -52,7 +52,6 @@ const Search = () => {
   return (
     <SearchContainer>
       <InputSearch
-        placeholder={"ingrese su busqueda"}
         value={searchTerm}
         onChange={handleChange}
       />

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 
 const InputSearch = ({ placeholder, value, onChange }) => {
@@ -10,5 +11,15 @@ const InputSearch = ({ placeholder, value, onChange }) => {
     </div>
   );
 };
+
+InputSearch.propTypes = {
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func
+}
+
+InputSearch.defaultProps = {
+  placeholder: 'ingrese su busqueda',
+}
 
 export default InputSearch;
