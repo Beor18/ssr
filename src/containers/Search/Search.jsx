@@ -14,7 +14,7 @@ import Button from "../../components/Button/Button";
 
 const Search = () => {
   const { loading, setLoading } = useContext(SearchContext);
-  
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [datas, setDatas] = useState({});
@@ -51,10 +51,7 @@ const Search = () => {
 
   return (
     <SearchContainer>
-      <InputSearch
-        value={searchTerm}
-        onChange={handleChange}
-      />
+      <InputSearch value={searchTerm} onChange={handleChange} />
       <FilterContainer>
         <FilterButtons
           pagSelected={pagSelected}
@@ -70,7 +67,6 @@ const Search = () => {
           loading={loading}
         />
       ) : (
-        <div>
           <ul className="cards">
             {searchResults.map((item) => (
               <Card
@@ -81,7 +77,6 @@ const Search = () => {
               />
             ))}
           </ul>
-        </div>
       )}
     </SearchContainer>
   );
