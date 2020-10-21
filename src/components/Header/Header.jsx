@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="sub-header">
-        <p>Stackly Code</p>
+        <img src="https://stacklycode.com/logo.svg" alt="Logo" />
       </div>
     </header>
   );
